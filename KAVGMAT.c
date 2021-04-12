@@ -13,26 +13,29 @@ int main(void)
 	    int a[n][m];
 	    
 	    // Input of the array matrix
+	    // t is the final answer
+	    t = 0;
 	    for(i = n-1; i>=0; i--)
 	    {
 	        for(j = m-1; j>=0; j--)
 	        {
 	            scanf("%d", &a[i][j]);
+	            if (a[i][j] >=avg) t++;
+	           
 	        }
 	     }
 	    
 	    // maximum square dimension of the sub matrix
 	    if (m==n)
 	        s = m-1;
-	    else s=n;
+	    else if(m>n) s=n;
+	    else s= m;
 	        
-	   // t -> final answer
-	   t = 0;
 	   // Sub matrix run 
-	   for (sub = 1; sub <=s; sub++)
+	   for (sub = 2; sub <=s; sub++)
 	   {
-	         col = m-1;
 	       // Run matrix 
+	       col = m-1;
 	       for(i = 0; i<n; i++)
 	       {
 	           if(col == 0) break;
